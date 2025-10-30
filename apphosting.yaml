@@ -3,7 +3,7 @@
 
 # The ID of the App Hosting backend to deploy to.
 # This can be found in the Firebase console.
-backendId: bestofstreetview
+backendId: bestspotsmap
 
 runConfig:
   # Increase this value if you'd like to automatically spin up
@@ -29,3 +29,6 @@ env:
     secret: FIREBASE_APP_ID
   - variable: NEXT_PUBLIC_AWIN_PUBLISHER_ID
     secret: AWIN_PUBLISHER_ID
+  - variable: GITHUB_TOKEN
+    secret: GITHUB_TOKEN
+
