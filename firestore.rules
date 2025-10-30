@@ -1,0 +1,57 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      // Check if the user is signed in and their user document has the 'admin' role.
+      return isSignedIn() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // USERS
+    match /users/{userId} {
+      // Any signed-in user can read any user's public profile.
+      allow read: if isSignedIn();
+      // Users can create their own profile, and can only update their own profile.
+      allow create: if isSignedIn() && isOwner(userId);
+      allow update: if isSignedIn() && isOwner(userId);
+      // Users cannot delete their profiles for data integrity.
+      allow delete: if false;
+    }
+
+    // SPOTS
+    match /spots/{spotId} {
+      // Any signed-in user can read any spot. This is necessary for features
+      // like favorites and for admins to see pending spots.
+      allow read: if isSignedIn();
+      
+      // Any signed-in user can create a spot.
+      allow create: if isSignedIn();
+      
+      // A user can update/delete a spot if they are the owner OR if they are an admin.
+      // This allows admins to approve spots by updating `isApproved`.
+      allow update, delete: if isSignedIn() && (isOwner(resource.data.authorId) || isAdmin());
+    }
+    
+    // FEEDBACK
+    match /feedback/{feedbackId} {
+        // A user can read their own feedback, or an admin can read any feedback.
+        allow read: if isSignedIn() && (isOwner(resource.data.user.uid) || isAdmin());
+        // Only an admin can delete feedback.
+        allow delete: if isAdmin();
+        // Nobody can update feedback, users must submit new feedback.
+        allow update: if false;
+        // Any signed-in user can create feedback.
+        allow create: if isSignedIn();
+    }
+  }
+}
