@@ -56,7 +56,6 @@ next-env.d.ts
 # Generated / Local Tooling
 # ─────────────────────────────
 .genkit/*
-.env*
 .envrc
 *.local
 
