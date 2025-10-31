@@ -1,7 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-node_modules
+# ─────────────────────────────
+# Dependencies
+# ─────────────────────────────
+node_modules/
 .pnp
 .pnp.*
 .yarn/*
@@ -10,52 +12,72 @@ node_modules
 !.yarn/releases
 !.yarn/versions
 
-# testing
-coverage
+# ─────────────────────────────
+# Testing / Coverage
+# ─────────────────────────────
+coverage/
+*.lcov
 
-# next.js
+# ─────────────────────────────
+# Next.js Build Output
+# ─────────────────────────────
 .next/
 out/
 
-# production
-/build
-/dist
+# ─────────────────────────────
+# Production / Bundles
+# ─────────────────────────────
+build/
+dist/
+.turbo/
+.vercel/
 
-# misc
+# ─────────────────────────────
+# Misc
+# ─────────────────────────────
 .DS_Store
 *.pem
 
-# debug
+# ─────────────────────────────
+# Debug Logs
+# ─────────────────────────────
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# vercel
-.vercel
-
-# typescript
+# ─────────────────────────────
+# TypeScript
+# ─────────────────────────────
 *.tsbuildinfo
 next-env.d.ts
 
-# generated / local tooling
+# ─────────────────────────────
+# Generated / Local Tooling
+# ─────────────────────────────
 .genkit/*
 .env*
 .envrc
 *.local
 
-# firebase
+# ─────────────────────────────
+# Firebase
+# ─────────────────────────────
 firebase-debug.log
 firestore-debug.log
-.firebase/          # ← add this line
-.firebaserc_backup* # ← optional safety
+.firebase/
+.firebaserc_backup*
 *.runtimeconfig.json
 
-# IDEs / editors
-.vscode/            # local editor settings
+# ─────────────────────────────
+# IDEs / Editors
+# ─────────────────────────────
+.vscode/
 .idea/
 *.swp
 
-# OS files
+# ─────────────────────────────
+# OS Files
+# ─────────────────────────────
 .Spotlight-V100
 .Trashes
