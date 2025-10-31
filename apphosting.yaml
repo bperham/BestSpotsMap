@@ -29,6 +29,4 @@ env:
     secret: FIREBASE_APP_ID
   - variable: NEXT_PUBLIC_AWIN_PUBLISHER_ID
     secret: AWIN_PUBLISHER_ID
-  - variable: GITHUB_TOKEN
-    secret: GITHUB_TOKEN
 
