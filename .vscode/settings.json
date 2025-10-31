@@ -1,0 +1,50 @@
+{
+  // Formatting
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // Auto-fix ESLint issues on save. Use "explicit" if you want manual-only.
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+
+  // ESLint + TypeScript
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "typescript.tsserver.maxTsServerMemory": 4096,
+
+  // Tailwind / CSS
+  "css.lint.unknownAtRules": "ignore",
+
+  // Hide heavy/generated stuff from the UI and search
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.next": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.turbo": true,
+    "**/coverage": true
+  },
+
+  // Prevent file watcher overload (stops the “10000 changes” noise)
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/**": true,
+    "**/.next/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/.turbo/**": true,
+    "**/coverage/**": true
+  },
+
+  // Git: suppress big-change warning banner
+  "git.ignoreLimitWarning": true
+}

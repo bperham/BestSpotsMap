@@ -1,0 +1,19 @@
+{
+  "recommendations": [
+    // --- Core linting & formatting ---
+    "dbaeumer.vscode-eslint",          // ESLint
+    "esbenp.prettier-vscode",          // Prettier – Code Formatter
+
+    // --- Tailwind / Styling ---
+    "bradlc.vscode-tailwindcss",       // Tailwind CSS IntelliSense
+    "mikestead.dotenv",                // DotEnv syntax highlighting
+
+    // --- Firebase & JSON helpers ---
+    "firebase.firebase-vscode",        // Firebase Tools (optional)
+
+    // --- Productivity / AI (optional) ---
+    "github.copilot",                  // GitHub Copilot
+    "openai.chatgpt-vscode"            // ChatGPT official extension
+  ],
+  "unwantedRecommendations": []
+}
