@@ -1,14 +1,13 @@
 {
-  // Formatting
+  // ---------- Formatting ----------
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  // Auto-fix ESLint issues on save. Use "explicit" if you want manual-only.
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
   "editor.formatOnSaveMode": "modificationsIfAvailable",
 
-  // ESLint + TypeScript
+  // ---------- ESLint + TypeScript ----------
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -17,34 +16,47 @@
   ],
   "typescript.tsserver.maxTsServerMemory": 4096,
 
-  // Tailwind / CSS
+  // ---------- Tailwind / CSS ----------
   "css.lint.unknownAtRules": "ignore",
 
-  // Hide heavy/generated stuff from the UI and search
+  // ---------- Hide heavy/generated stuff from Explorer ----------
   "files.exclude": {
     "**/node_modules": true,
-    "**/.next": true
-  },
-  "search.exclude": {
-    "**/node_modules": true,
     "**/.next": true,
+    "**/.firebase": true,
+    "**/.vercel": true,
+    "**/.turbo": true,
     "**/dist": true,
     "**/build": true,
-    "**/.turbo": true,
     "**/coverage": true
   },
 
-  // Prevent file watcher overload (stops the “10000 changes” noise)
+  // ---------- Hide same from Search ----------
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/.firebase": true,
+    "**/.vercel": true,
+    "**/.turbo": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/coverage": true
+  },
+
+  // ---------- Prevent watcher overload ----------
   "files.watcherExclude": {
     "**/node_modules/**": true,
     "**/.git/**": true,
     "**/.next/**": true,
+    "**/.firebase/**": true,
+    "**/.vercel/**": true,
+    "**/.turbo/**": true,
     "**/dist/**": true,
     "**/build/**": true,
-    "**/.turbo/**": true,
-    "**/coverage/**": true
+    "**/coverage/**": true,
+    "**/.vscode/**": true
   },
 
-  // Git: suppress big-change warning banner
+  // ---------- Git ----------
   "git.ignoreLimitWarning": true
 }
