@@ -19,6 +19,7 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -37,9 +38,24 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# generated / local tooling
 .genkit/*
 .env*
+.envrc
+*.local
 
 # firebase
 firebase-debug.log
 firestore-debug.log
+.firebase/          # ← add this line
+.firebaserc_backup* # ← optional safety
+*.runtimeconfig.json
+
+# IDEs / editors
+.vscode/            # local editor settings
+.idea/
+*.swp
+
+# OS files
+.Spotlight-V100
+.Trashes
