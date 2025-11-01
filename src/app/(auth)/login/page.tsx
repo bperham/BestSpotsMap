@@ -28,7 +28,6 @@ import { Logo } from '@/components/icons';
 import { useAuth } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
 import {
-  signInWithGoogle,
   signInWithPassword,
 } from '@/firebase/auth/auth-service';
 
@@ -71,21 +70,11 @@ export default function LoginPage() {
     }
   };
 
-  const handleGoogleSignIn = async () => {
-    if (!auth) return;
-    try {
-      await signInWithGoogle(auth);
-      router.push('/');
-    } catch (error: any) {
-      handleError(error, 'Google Sign-In Error');
-    }
-  };
-
   return (
     <Card>
       <CardHeader className="space-y-1 text-center">
-        <div className="flex justify-center mb-2">
-          <Logo className="h-8 w-8 text-primary" />
+        <div className="flex justify-center">
+          <Logo className="h-24 w-24 text-primary" />
         </div>
         <CardTitle className="text-2xl font-headline">Welcome Back</CardTitle>
         <CardDescription>
@@ -94,36 +83,17 @@ export default function LoginPage() {
       </CardHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <CardContent className="grid gap-4">
-            <div className="grid gap-2">
-              <Button
-                variant="outline"
-                type="button"
-                onClick={handleGoogleSignIn}
-              >
-                Sign in with Google
-              </Button>
-            </div>
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t" />
-              </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-card px-2 text-muted-foreground">
-                  Or continue with
-                </span>
-              </div>
-            </div>
+          <CardContent className="grid gap-2">
             <FormField
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem className="grid gap-2">
+                <FormItem className="grid gap-1">
                   <FormLabel>Email</FormLabel>
                   <FormControl>
                     <Input
                       type="email"
-                      placeholder="m@example.com"
+                      placeholder="your@email.com"
                       {...field}
                     />
                   </FormControl>
@@ -135,7 +105,7 @@ export default function LoginPage() {
               control={form.control}
               name="password"
               render={({ field }) => (
-                <FormItem className="grid gap-2">
+                <FormItem className="grid gap-1">
                   <FormLabel>Password</FormLabel>
                   <FormControl>
                     <Input type="password" {...field} />
@@ -145,7 +115,7 @@ export default function LoginPage() {
               )}
             />
           </CardContent>
-          <CardFooter className="flex flex-col gap-4">
+          <CardFooter className="flex flex-col gap-2">
             <Button
               className="w-full"
               type="submit"
