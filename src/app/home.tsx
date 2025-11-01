@@ -105,7 +105,7 @@ export default function HomePage({
         zoom: parseInt(zoom, 10)
       };
     }
-    return userProfile?.homeLocation || DEFAULT_HOME_EXTENT;
+    return userProfile?.homeLocation || DEFAULT_GLOBE_EXTENT;
   }, [searchParams, userProfile]);
 
 
