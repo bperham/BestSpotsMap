@@ -5,7 +5,7 @@ export function Logo(props: SVGProps<SVGSVGElement> & { className?: string }) {
   // The 'props' are passed to maintain size and other styles from where the component is called.
   return (
     <img 
-      src="/BestSpots_Logo.png" 
+      src="/BestSpots_RedStarAward.png" 
       alt="The Best Spots Logo" 
       className={props.className}
       style={{
