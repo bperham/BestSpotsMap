@@ -31,15 +31,15 @@ export function SpotTypeFilter({ onFilterChange }: SpotTypeFilterProps) {
 
   return (
     <Select defaultValue="all" onValueChange={onFilterChange}>
-      <SelectTrigger className="w-auto border bg-background">
+      <SelectTrigger className="h-auto w-auto border bg-background px-4 py-2">
         <SelectValue placeholder="Filter by type" />
       </SelectTrigger>
       <SelectContent>
         {spotTypes.map((type) => (
-          <SelectItem key={type.value} value={type.value}>
+          <SelectItem key={type.value} value={type.value} className="leading-tight">
              <div className="flex items-center gap-2">
               {type.emoji && <span className="text-lg" role="img">{type.emoji}</span>}
-              <span>{type.label}</span>
+              <span className='w-full'>{type.label}</span>
             </div>
           </SelectItem>
         ))}

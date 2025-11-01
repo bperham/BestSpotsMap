@@ -47,11 +47,11 @@ export function Header({
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 max-w-screen-2xl items-center px-2">
+      <div className="container flex max-w-screen-2xl items-center px-2 py-2">
         <div className="mr-4 flex items-center">
           <button onClick={handleHomeClick} className="flex items-center space-x-2 focus:outline-none">
-            <Logo className="h-10 w-10" />
-            <span className="hidden font-headline font-bold sm:inline-block">
+            <Logo className="h-10 w-10 [filter:drop-shadow(0_2px_4px_rgba(0,0,0,1))]" />
+            <span className="hidden font-headline font-bold sm:inline-block text-2xl text-yellow-400 [text-shadow:0_2px_4px_rgba(0,0,0,1)]">
               The Best Spots
             </span>
           </button>
@@ -60,7 +60,6 @@ export function Header({
         <div className="flex flex-1 items-center justify-end gap-4">
           {showFilters && (
             <div className="flex items-center gap-2">
-              <span className="text-sm font-medium text-muted-foreground">Filter:</span>
               {onCategoryFilterChange && <CategoryFilter onFilterChange={onCategoryFilterChange} />}
               {onSpotTypeFilterChange && <SpotTypeFilter onFilterChange={onSpotTypeFilterChange} />}
             </div>
@@ -73,13 +72,14 @@ export function Header({
                     variant="outline"
                     onClick={onGoToRandomSpot}
                     disabled={!spotsAvailable}
+                    className="whitespace-normal h-auto font-normal"
                   >
                     <span role="img" aria-label="dice" className="mr-2">🎲</span>
                     Surprise Me!
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Go to a random spot</p>
+                  <p>Go to a random spot!</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>

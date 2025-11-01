@@ -51,17 +51,17 @@ const categoryEmojis: Record<Category | 'all', string> = {
 export function CategoryFilter({ onFilterChange }: CategoryFilterProps) {
   return (
     <Select defaultValue="all" onValueChange={onFilterChange}>
-      <SelectTrigger className="w-auto border bg-background">
+      <SelectTrigger className="h-auto w-auto border bg-background px-4 py-2">
         <SelectValue placeholder="Filter by category" />
       </SelectTrigger>
       <SelectContent>
         {categories.map((cat) => (
-          <SelectItem key={cat.value} value={cat.value}>
+          <SelectItem key={cat.value} value={cat.value} className="leading-tight">
             <div className="flex items-center gap-2">
               <span className="text-lg" role="img">
                 {categoryEmojis[cat.value]}
               </span>
-              <span>{cat.label}</span>
+              <span className='w-full'>{cat.label}</span>
             </div>
           </SelectItem>
         ))}
