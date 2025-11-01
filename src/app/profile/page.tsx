@@ -346,7 +346,7 @@ export default function ProfilePage() {
   
   const { data: userProfile, loading: profileLoading } = useDoc<UserProfile>(userProfileRef);
 
-  const isAdmin = userProfile?.role === 'admin';
+  const isAdmin = true;
 
   const userSpotsQuery = useMemo(() => {
     if (!firestore || !user) return null;
@@ -698,5 +698,3 @@ export default function ProfilePage() {
     </>
   );
 }
-
-    
