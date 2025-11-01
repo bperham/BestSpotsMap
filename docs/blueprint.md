@@ -1,4 +1,4 @@
-# **App Name**: Street View Spots
+# **App Name**: The Best Spots
 
 ## Core Features:
 

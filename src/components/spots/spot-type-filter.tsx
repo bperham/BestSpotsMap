@@ -16,8 +16,8 @@ interface SpotTypeFilterProps {
 }
 
 const spotTypes: { value: SpotType; label: string, emoji?: string }[] = [
-  { value: 'all', label: 'All Views', emoji: '🌍' },
-  { value: 'my-spots', label: 'My Views', emoji: '👤' },
+  { value: 'all', label: 'All Spots', emoji: '🌍' },
+  { value: 'my-spots', label: 'My Spots', emoji: '👤' },
   { value: 'my-favorites', label: 'My Favorites', emoji: '⭐' },
   { value: 'highest-rated', label: 'Highest Rated', emoji: '🏆' },
 ];

@@ -14,11 +14,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <title>Best of Street View</title>
+        <title>The Best Spots</title>
         <meta
           name="description"
-          content="Discover and share the best of Google Street View at bestofstreetview.com."
+          content="Discover and share the best spots on Google Street View."
         />
+        <link rel="icon" href="/BestSpots_Logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

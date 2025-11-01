@@ -133,15 +133,15 @@ function SpotCard({ spot, isOwner, isAdmin, onApprove, author }: { spot: Spot, i
     try {
       await updateSpotDetails(firestore, spot.id, editedSpotData);
       toast({
-        title: 'View Updated!',
-        description: 'Your view details have been saved.',
+        title: 'Spot Updated!',
+        description: 'Your spot details have been saved.',
       });
       setEditDialogOpen(false);
     } catch (error: any) {
       toast({
         variant: 'destructive',
         title: 'Update Error',
-        description: error.message || 'There was a problem updating your view.',
+        description: error.message || 'There was a problem updating your spot.',
       });
     }
   };
@@ -151,7 +151,7 @@ function SpotCard({ spot, isOwner, isAdmin, onApprove, author }: { spot: Spot, i
     try {
       await deleteSpot(firestore, spot.id);
       toast({
-        title: 'View Deleted',
+        title: 'Spot Deleted',
         description: `"${spot.title}" has been removed.`,
       });
       setDeleteDialogOpen(false);
@@ -159,7 +159,7 @@ function SpotCard({ spot, isOwner, isAdmin, onApprove, author }: { spot: Spot, i
       toast({
         variant: 'destructive',
         title: 'Deletion Error',
-        description: error.message || 'Could not delete the view.',
+        description: error.message || 'Could not delete the spot.',
       });
     }
   };
@@ -190,7 +190,7 @@ function SpotCard({ spot, isOwner, isAdmin, onApprove, author }: { spot: Spot, i
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.src = 'https://placehold.co/600x400/212939/94a3b8?text=No+Image';
-              target.alt = 'Street view not available';
+              target.alt = 'Street spot not available';
             }}
           />
         </div>
@@ -225,7 +225,7 @@ function SpotCard({ spot, isOwner, isAdmin, onApprove, author }: { spot: Spot, i
           <div className="p-3 px-4 flex gap-2 flex-wrap">
              <Button asChild variant="outline" size="sm">
                 <Link href={goToSpotUrl}>
-                    <Map className="mr-2 h-4 w-4" /> Go to View
+                    <Map className="mr-2 h-4 w-4" /> Go to Spot
                 </Link>
              </Button>
             {(isOwner || isAdmin) && (
@@ -256,7 +256,7 @@ function SpotCard({ spot, isOwner, isAdmin, onApprove, author }: { spot: Spot, i
         onOpenChange={setDeleteDialogOpen}
         onConfirm={handleSpotDelete}
         itemTitle={spot.title}
-        itemType="view"
+        itemType="spot"
       />
     </>
   );
@@ -413,14 +413,14 @@ export default function ProfilePage() {
     try {
       await approveSpot(firestore, spotId);
       toast({
-        title: 'View Approved',
-        description: 'The view is now public.',
+        title: 'Spot Approved',
+        description: 'The spot is now public.',
       });
     } catch (error: any) {
       toast({
         variant: 'destructive',
         title: 'Approval Error',
-        description: error.message || 'There was a problem approving the view.',
+        description: error.message || 'There was a problem approving the spot.',
       });
     }
   };
@@ -615,8 +615,8 @@ export default function ProfilePage() {
 
         <Tabs defaultValue="added" className="w-full">
           <TabsList className={cn("gap-2")}>
-            <TabsTrigger value="added">Added Views ({userSpots?.length || 0})</TabsTrigger>
-            <TabsTrigger value="favorites">Favorite Views ({favoriteSpots?.length || 0})</TabsTrigger>
+            <TabsTrigger value="added">Added Spots ({userSpots?.length || 0})</TabsTrigger>
+            <TabsTrigger value="favorites">Favorite Spots ({favoriteSpots?.length || 0})</TabsTrigger>
             {isAdmin && <TabsTrigger value="pending">Pending ({pendingSpots?.length || 0})</TabsTrigger>}
           </TabsList>
             {contentLoading ? (
@@ -633,8 +633,8 @@ export default function ProfilePage() {
                       ))}
                       {sortedUserSpots.length === 0 && (
                         <div className="text-center py-12 border-2 border-dashed rounded-lg">
-                          <h3 className="text-lg font-medium">No Views Yet</h3>
-                          <p className="text-muted-foreground mt-1">You haven't submitted any views. Go explore!</p>
+                          <h3 className="text-lg font-medium">No Spots Yet</h3>
+                          <p className="text-muted-foreground mt-1">You haven't submitted any spots. Go explore!</p>
                         </div>
                       )}
                     </div>
@@ -650,8 +650,8 @@ export default function ProfilePage() {
                     ) : (
                         <div className="text-center py-12 border-2 border-dashed rounded-lg">
                             <Bookmark className="w-8 h-8 text-muted-foreground mx-auto mb-2"/>
-                            <h3 className="text-lg font-medium">No Favorite Views Yet</h3>
-                            <p className="text-muted-foreground mt-1">Views you favorite will appear here.</p>
+                            <h3 className="text-lg font-medium">No Favorite Spots Yet</h3>
+                            <p className="text-muted-foreground mt-1">Spots you favorite will appear here.</p>
                         </div>
                     )}
                   </TabsContent>
@@ -667,8 +667,8 @@ export default function ProfilePage() {
                       ) : (
                           <div className="text-center py-12 border-2 border-dashed rounded-lg">
                               <CheckSquare className="w-8 h-8 text-muted-foreground mx-auto mb-2"/>
-                              <h3 className="text-lg font-medium">No Pending Views</h3>
-                              <p className="text-muted-foreground mt-1">There are no new views to review right now.</p>
+                              <h3 className="text-lg font-medium">No Pending Spots</h3>
+                              <p className="text-muted-foreground mt-1">There are no new spots to review right now.</p>
                           </div>
                       )}
                     </TabsContent>

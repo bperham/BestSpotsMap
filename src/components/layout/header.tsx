@@ -48,11 +48,11 @@ export function Header({
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
-        <div className="mr-6 flex items-center">
+        <div className="mr-4 flex items-center">
           <button onClick={handleHomeClick} className="flex items-center space-x-2 focus:outline-none">
-            <Logo className="h-6 w-6" />
+            <Logo className="h-10 w-10" />
             <span className="hidden font-headline font-bold sm:inline-block">
-              Best of Street View
+              The Best Spots
             </span>
           </button>
         </div>
@@ -79,7 +79,7 @@ export function Header({
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Go to a random view</p>
+                  <p>Go to a random spot</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
@@ -89,7 +89,7 @@ export function Header({
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 type="search"
-                placeholder="Search for a view..."
+                placeholder="Search for a spot..."
                 className="pl-9"
                 value={searchQuery}
                 onChange={onSearchChange}
